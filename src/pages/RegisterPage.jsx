@@ -10,9 +10,7 @@ async function registerRequest({ name, email, password }) {
     body: JSON.stringify({ name, email, password }),
   });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) {
-    throw new Error(data?.message || data?.error || `Request failed: ${res.status}`);
-  }
+  if (!res.ok) throw new Error(data?.message || data?.error || `Request failed: ${res.status}`);
   return data;
 }
 
@@ -33,7 +31,7 @@ export default function RegisterPage() {
     setError(null);
     try {
       await registerRequest(form);
-      nav("/login"); // will go to /login once we add that route next
+      nav("/login");
     } catch (err) {
       setError(err.message);
     } finally {
@@ -57,12 +55,8 @@ export default function RegisterPage() {
           Password
           <input type="password" name="password" value={form.password} onChange={onChange} required minLength={6} />
         </label>
-
         {error && <p style={{ color: "crimson" }}>{error}</p>}
-
-        <button disabled={submitting}>
-          {submitting ? "Creating..." : "Create account"}
-        </button>
+        <button disabled={submitting}>{submitting ? "Creating..." : "Create account"}</button>
       </form>
 
       <p style={{ marginTop: 8 }}>
