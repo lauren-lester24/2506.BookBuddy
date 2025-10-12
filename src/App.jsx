@@ -3,6 +3,13 @@ import Layout from "./layout/Layout";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import AccountPage from "./pages/AccountPage.jsx";
+import {Routes, Route} from 
+
+
+import Layout from "./layout/Layout";
+import Navbar from "./layout/Navbar";
+
+
 
 export default function App() {
   return (

@@ -18,4 +18,13 @@ export default function Navbar() {
       <NavLink to="/login" style={linkStyle}>Login</NavLink>
     </nav>
   );
+import { NavLink } from "react-router";
+
+import { useAuth } from "../auth/AuthContext"
+
+export default function Navbar() {
+return(
+
+)
+
 }
