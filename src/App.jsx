@@ -2,6 +2,17 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./layout/Layout";                // your working layout
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";       // add this
+import Layout from "./layout/Layout";
+import RegisterPage from "./pages/RegisterPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import AccountPage from "./pages/AccountPage.jsx";
+import {Routes, Route} from 
+
+
+import Layout from "./layout/Layout";
+import Navbar from "./layout/Navbar";
+
+
 
 export default function App() {
   return (
@@ -10,6 +21,8 @@ export default function App() {
         <Route index element={<Navigate to="/register" replace />} />
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />     {/* new */}
+        <Route path="login" element={<LoginPage />} />
+        <Route path="account" element={<AccountPage />} />
         <Route path="*" element={<div style={{ padding: 24 }}><h1>Not Found</h1></div>} />
       </Route>
     </Routes>
