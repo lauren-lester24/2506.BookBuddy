@@ -1,33 +1,27 @@
-import { useState, useEffect } from "react";
-import
-import { getBooks } from "..api/client"
+import { Link } from "react-router";
 
 
-export default function BookList({setBookId}) {
-const [ books, setBooks] = useState([]);
-
-useEffect(() => {
-    const syncBooks = async () => {
-        const data = await getBooks();
-        setBooks(data);
-    }
-    syncBooks();
-}, []);
-
+export default function BookList({books}) {
 return (
-    <>
-    <h1>Catalog</h1>
-    <ol>
+    <ul>
 {books.map((book) => (
-    <li
-    key={books.id}
-    ></li>
+    
+<BookListItem key={book.id} book={book} />
+
+
+    
 ))}
 
-    </ol>
-    
-    </>
-)
 
+    </ul>
+);
     
+  
+}
+function BookListItem({ book }) {
+  return (
+    <li>
+      <Link to={"/books/" + book.id}>{book.name}</Link>
+    </li>
+  );
 }
