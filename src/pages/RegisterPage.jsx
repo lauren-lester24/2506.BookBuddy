@@ -30,10 +30,17 @@ export default function RegisterPage() {
     setSubmitting(true);
     setError(null);
     try {
+<<<<<<< HEAD
+      await registerRequest(form);
+      nav("/login");
+    } catch (err) {
+      setError(err.message);
+=======
       await registerRequest(form);       // Call the API
       nav("/login");                     // Redirect to login on success
     } catch (err) {
       setError(err.message);             // Display any API error
+>>>>>>> origin/feat/auth-login
     } finally {
       setSubmitting(false);
     }
@@ -45,6 +52,20 @@ export default function RegisterPage() {
       <form onSubmit={onSubmit}>
         <label>
           Name
+<<<<<<< HEAD
+          <input name="name" value={form.name} onChange={onChange} required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" value={form.email} onChange={onChange} required />
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" value={form.password} onChange={onChange} required minLength={6} />
+        </label>
+        {error && <p style={{ color: "crimson" }}>{error}</p>}
+        <button disabled={submitting}>{submitting ? "Creating..." : "Create account"}</button>
+=======
           <input
             name="name"
             value={form.name}
@@ -81,6 +102,7 @@ export default function RegisterPage() {
         <button disabled={submitting}>
           {submitting ? "Creating..." : "Create account"}
         </button>
+>>>>>>> origin/feat/auth-login
       </form>
 
       <p style={{ marginTop: 8 }}>

@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+export default function LoginPage() {
+  return (
+    <div style={{ padding: 24 }}>
+      <h1>Login</h1>
+      <p>Placeholder — this will be implemented next.</p>
+=======
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { authApi } from "../api/client";
@@ -50,6 +57,7 @@ export default function LoginPage() {
       <p style={{ marginTop: 8 }}>
         New here? <Link to="/register">Create an account</Link>
       </p>
+>>>>>>> origin/feat/auth-login
     </div>
   );
 }
