@@ -1,29 +1,25 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import Layout from "./layout/Layout";                // your working layout
-import RegisterPage from "./pages/RegisterPage.jsx";
-import LoginPage from "./pages/LoginPage.jsx";       // add this
-import Layout from "./layout/Layout";
-import RegisterPage from "./pages/RegisterPage.jsx";
-import LoginPage from "./pages/LoginPage.jsx";
-import AccountPage from "./pages/AccountPage.jsx";
-import {Routes, Route} from 
+import { Routes , Route } from "react-router";
 
 
 import Layout from "./layout/Layout";
-import Navbar from "./layout/Navbar";
-
-
+import Register from "./auth/Register.jsx"
+import Login from "./auth/Login"
+import BookDetails from "./Books/BookDetails"
+import BookList from "./Books/BookList"
+import Error404 from "./auth/Error404.jsx";
 
 export default function App() {
+
+
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="/register" replace />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />     {/* new */}
-        <Route path="login" element={<LoginPage />} />
-        <Route path="account" element={<AccountPage />} />
-        <Route path="*" element={<div style={{ padding: 24 }}><h1>Not Found</h1></div>} />
+      <Route element={<Layout />}>
+        <Route path="/books" element={<BookList />} />
+
+        <Route path="/books/:id" element={<BookDetails />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<Error404 />} />
       </Route>
     </Routes>
   );
